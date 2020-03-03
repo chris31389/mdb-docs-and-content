@@ -104,7 +104,7 @@
               flex: 1 0 auto;
               background: #00997B;
               color: white;
-              margin: 0 1rem 1rem 0;
+              margin: 0 16px 16px 0;
               text-align: center;
               font-weight: 900;
               font-size: 2rem;
@@ -138,7 +138,7 @@
             Array.from(this.masonry.nativeElement.children).forEach((child: any, i) => {
               const order = i % numCols;
               this.renderer.setStyle(child, 'order', order);
-              colHeights[order] += parseFloat(child.clientHeight);
+              colHeights[order] += parseFloat(child.clientHeight + 16); // 16 is the margin height
             })
             this.renderer.setStyle(this.masonry.nativeElement, 'height', `${Math.max(...colHeights)}px`)
           }
